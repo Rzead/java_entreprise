@@ -11,4 +11,6 @@ public interface CoffeeService {
     List<CoffeeDto> allCoffees();
     Optional<CoffeeDto> oneCoffee(Long id);
     CoffeeDto create(CoffeeCreateDto dto);
+    OPtional<CoffeeDto> update(Long id, CoffeeUpdateDto dto);
+    ///update
 }

@@ -44,4 +44,14 @@ public class CoffeeServiceImpl implements CoffeeService
         Coffee saved = repository.save(entity);
         return mapper.toDto(saved);
     }
+
+    @Override
+    @Transactional
+    public Optional<CoffeeDto> update(Long id, CoffeeUpdateDto dto) {
+        return repository.findById(id)
+                .map(existing -> {
+                    mapper.updateEntity(existing, dto);
+                    return mapper.toDto(updated);
+                });
+    }
 }

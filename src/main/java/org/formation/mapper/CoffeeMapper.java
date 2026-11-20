@@ -13,4 +13,8 @@ public interface CoffeeMapper {
 
     @Mapping(target = "id", ignore = true)
     Coffee toEntity(CoffeeCreateDto dto);
+    
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
+    void updateEntity(@MappingTarget Coffee entity, CoffeeUpdateDto dto);
 }
